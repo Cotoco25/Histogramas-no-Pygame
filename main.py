@@ -1,20 +1,36 @@
+from pygame import *
+import sys
 import pygame, sys
 from pygame.locals import QUIT
 import random
 
+modo = ""
 
+
+xaxa = int(input("Entre um numero: "))
+zaza = int(input("Entre um numero: "))
+papa = int(input("Entre um numero: "))
+sasa = int(input("Entre um numero: "))
+baba = int(input("Entre um numero: "))
+
+lista_input = [
+    xaxa,zaza,papa,sasa,baba
+        ]
+tamano = len(lista_input)
 
 nums = [
     100, 120, 130, 120, 150, 100, 160, 200, 190, 110, 115, 125, 135, 170, 130
 ]
 
+tamanhooo = len(nums)
+tamanho = random.randint(1,tamanhooo)
 num_cat = 4
 num_min = min(nums)
 num_max = max(nums)
 tam_cat = (num_max - num_min) / num_cat
 lista_total = [0] * num_cat
 
-
+background_color = (112, 128, 144)
 def contabiliza_totais(nums, lista_total):
     #para cada n na minha lista
     for i in range(len(nums)):
@@ -41,8 +57,58 @@ def draw(screen):
         pygame.draw.rect(screen, (255, 0, 0), (x, 0 , 25, h))
 
 lista_nums = [
-    100, 120, 130, 120, 150, 100, 160, 200, 190, 110, 115, 125, 135, 170, 130
-]
+    
+    ]
+x = random.randint(80, 200)
+for i in range(50):
+    x = random.randint(80, 200)
+    lista_nums.append(x)
 
-num = int(input("Entre um numero: "))
-lista_nums.append(num)
+
+tamanho_2 = len(lista_nums)
+
+#num = int(input("Entre um numero: "))
+#lista_nums.append(num)
+
+pygame.init()
+screen_x = 1500
+screen_y = 900
+screen = pygame.display.set_mode((screen_x, screen_y))
+pygame.display.set_caption('Histograma')
+while True:
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_1:
+                modo = 1
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_2:
+                modo = 2
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_3:
+                modo = 3
+    
+    screen.fill(background_color)
+    draw(screen)
+
+
+
+    if modo == 1:
+        for i in range(tamanho_2):
+            pygame.draw.rect(screen, (0, 0, 150), (10+i*(1500/tamanho_2), screen_y-lista_nums[i]*2, 1000/tamanho_2, lista_nums[i]*2))
+    
+    if modo == 2:
+        for i in range(tamanho):
+            pygame.draw.rect(screen, (150, 0, 0), (10+i*(1500/tamanho), screen_y-nums[i]*2, 1000/tamanho, nums[i]*2))
+    
+
+
+    if modo == 3:
+        for i in range(tamano):
+            pygame.draw.rect(screen, (0, 150, 0), (10+i*(1500/tamano), screen_y-lista_input[i]*2, 1000/tamano, lista_input[i]*2))
+
+
+    pygame.display.update()
+
