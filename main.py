@@ -166,6 +166,23 @@ while True:
     pygame.draw.rect(screen, (0, 0, 0), (0, 50, 30, 10))
 
 
+
+    pygame.draw.rect(screen, (0, 0, 0), (0, 0, 1500, 10))
+    screen.blit(fonte_pequena.render("100", True, (0,0,0)), (70, 10, 10, 10))
+    pygame.draw.rect(screen, (0, 0, 0), (100, 0, 10, 30))
+    screen.blit(fonte_pequena.render("250", True, (0,0,0)), (230, 10, 10, 10))
+    pygame.draw.rect(screen, (0, 0, 0), (200, 0, 10, 30))
+    screen.blit(fonte_pequena.render("500", True, (0,0,0)), (470, 10, 10, 10))
+    pygame.draw.rect(screen, (0, 0, 0), (500, 0, 10, 30))
+    screen.blit(fonte_pequena.render("750", True, (0,0,0)), (720, 10, 10, 10))
+    pygame.draw.rect(screen, (0, 0, 0), (750, 0, 10, 30))
+    screen.blit(fonte_pequena.render("1000", True, (0,0,0)), (960, 10, 10, 10))
+    pygame.draw.rect(screen, (0, 0, 0), (1000, 0, 10, 30))
+    screen.blit(fonte_pequena.render("1250", True, (0,0,0)), (1210, 10, 10, 10))
+    pygame.draw.rect(screen, (0, 0, 0), (1250, 0, 10, 30))
+    screen.blit(fonte_pequena.render("1500", True, (0,0,0)), (1460, 10, 10, 10))
+    pygame.draw.rect(screen, (0, 0, 0), (1500, 0, 10, 30))
+
     if modo == 1:
         for i in range(tamanho_2):
             pygame.draw.rect(screen, (0, 0, 150), (30+i*(1470/tamanho_2), screen_y-lista_nums[i], 1000/tamanho_2, lista_nums[i]*2))
